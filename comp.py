@@ -20,6 +20,7 @@ pytesseract.pytesseract.tesseract_cmd = r'F:\Program Files\Tesseract-OCR\tessera
 
 filename = "F://Comparison/phantomgv.pptx"
 folder = "F://Comparison"
+titles = []
 
 
 def get_text(img):
@@ -75,8 +76,6 @@ def get_inverted_text(filename):
 
 prs = Presentation(filename)
 
-titles = []
-
 
 for slide in prs.slides:
     title = slide.shapes.title
@@ -84,7 +83,7 @@ for slide in prs.slides:
         title = slide.shapes.title.text
         titles.append(title)
 
-titles
+titles = list(dict.fromkeys(titles))
 
 titles_length = len(titles)
 
