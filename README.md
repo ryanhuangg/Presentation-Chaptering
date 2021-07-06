@@ -1,4 +1,5 @@
 # Presentation-Chaptering
+Automatically creates timestamps for presentation videos by using OCR to identify text within the video that match powerpoint titles.
 
 # Requirements:
 Download and install Tesseract from here:
