@@ -2,7 +2,7 @@ python-pptx
 pywin32
 opencv-python
 pytesseract
-pil
+pillow
 tesseract
 tesseract-ocr
 natsort
