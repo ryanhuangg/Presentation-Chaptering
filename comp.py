@@ -71,7 +71,7 @@ def extractImages(pathIn, pathOut):
         print ('Read a new frame: ', success)
         if (success and count % 5 == 0):
             # if image is dark at the sample point turn it white for better OCR
-            if (image[20, int(mid), 1] > 127):
+            if (image[80, int(width - 150), 1] > 127):
                 image = (255 - image)
             image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
@@ -153,6 +153,7 @@ if titles == []:
 titles = list(dict.fromkeys(titles))
 
 titles_length = len(titles)
+print(titles)
 
 # cleanup and make new screenshots in the ss folder
 clear_files()

@@ -1,0 +1,8 @@
+python-pptx
+pywin32
+opencv-python
+pytesseract
+pil
+tesseract
+tesseract-ocr
+natsort
