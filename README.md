@@ -11,7 +11,7 @@ Use pip to install the following packages:
 python-pptx, pywin32, opencv-python, pytesseract, pil, tesseract, tesseract-ocr, natsort
 
 # How to run:
-Run the following command from powershell or command line:
+Place the powerpoint file and the video recording file in the same folder as the python script. Then, run the following command from powershell or command line:
 
 python comp.py -video [video-filename] -ppt [ppt-filename]
 
