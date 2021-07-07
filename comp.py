@@ -68,8 +68,8 @@ def extractImages(pathIn, pathOut):
     while success:
         vidcap.set(cv2.CAP_PROP_POS_MSEC, (count * 1000))
         success, image = vidcap.read()
-        print ('Read a new frame: ', success)
         if (success and count % 5 == 0):
+            print ('Read a new frame: ', success)
             # if image is dark at the sample point turn it white for better OCR
             if (image[80, int(width - 150), 1] > 127):
                 image = (255 - image)
@@ -136,9 +136,9 @@ prs = Presentation(filename)
 
 # find titles by getting title object
 for slide in prs.slides:
-    title = slide.shapes.title
+    #title = slide.shapes.title
     if title != None:
-        title = slide.shapes.title.text
+        #title = slide.shapes.title.text
         title = title.replace("\x0b", "").strip(""" !@#$%^&*)(_-+=}{][:;<,>.?"'/<,""")
         titles.append(title)
 
@@ -148,7 +148,7 @@ if titles == []:
         title_shape = slide.shapes[0]  # consider the zeroth indexed shape as the title
         if title_shape.has_text_frame:
             if title_shape.text.strip(""" !@#$%^&*)(_-+=}{][:;<,>.?"'/<,""") not in titles:
-                titles.append(title_shape.text.strip(""" !@#$%^&*)(_-+=}{][:;<,>.?"'/<,"""))
+                titles.append(title_shape.text.replace("\x0b", "").replace("\n", "").replace("\t", "").strip(""" !@#$%^&*)(_-+=}{][:;<,>.?"'/<,"""))
 
 titles = list(dict.fromkeys(titles))
 
