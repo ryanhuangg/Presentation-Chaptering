@@ -136,9 +136,9 @@ prs = Presentation(filename)
 
 # find titles by getting title object
 for slide in prs.slides:
-    #title = slide.shapes.title
+    title = slide.shapes.title
     if title != None:
-        #title = slide.shapes.title.text
+        title = slide.shapes.title.text
         title = title.replace("\x0b", "").strip(""" !@#$%^&*)(_-+=}{][:;<,>.?"'/<,""")
         titles.append(title)
 
