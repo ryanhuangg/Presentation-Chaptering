@@ -9,7 +9,9 @@ After installation, note down the path and change the tesseract.exe path in the 
 
 Use pip to install the following packages:
 python-pptx, pywin32, opencv-python, pytesseract, pillow, tesseract, tesseract-ocr, natsort
+
 OR
+
 pip install -r requirements.txt
 
 # How to run:
@@ -18,4 +20,5 @@ Place the powerpoint file and the video recording file in the same folder as the
 python comp.py -video [video-filename] -ppt [ppt-filename]
 
 For example:
+
 python comp.py -video sample.mp4 -ppt presentation.pptx
