@@ -22,3 +22,8 @@ python comp.py -video [video-filename] -ppt [ppt-filename]
 For example:
 
 python comp.py -video sample.mp4 -ppt presentation.pptx
+
+# Known issues:
+Doesn't work well with coloured text titles (black or white works well)
+
+Requires titles to all either be title shapes in the pptx or the 0th object in each slide. Doesn't work well if mixing the two
