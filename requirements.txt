@@ -1,8 +1,5 @@
 python-pptx
-pywin32
 opencv-python
 pytesseract
 pillow
-tesseract
 natsort
-tesseract-ocr
