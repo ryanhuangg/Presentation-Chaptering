@@ -8,7 +8,7 @@ https://github.com/UB-Mannheim/tesseract/wiki
 After installation, note down the path and change the tesseract.exe path in the comp.py file at line 25.
 
 Use pip to install the following packages:
-python-pptx, pywin32, opencv-python, pytesseract, pillow, tesseract, tesseract-ocr, natsort
+python-pptx, opencv-python, pytesseract, pillow, natsort
 
 OR
 
