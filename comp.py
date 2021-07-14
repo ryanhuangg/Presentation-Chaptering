@@ -1,8 +1,6 @@
 # required: use pip to install python-pptx, pywin32, opencv-python, pytesseract, pil, tesseract, tesseract-ocr, natsort
 
 from pptx import Presentation
-import win32com
-import win32com.client
 import os
 import sys
 import cv2
@@ -69,9 +67,9 @@ def extractImages(pathIn, pathOut):
         vidcap.set(cv2.CAP_PROP_POS_MSEC, (count * 1000))
         success, image = vidcap.read()
         if (success and count % 5 == 0):
-            print ('Read a new frame: ', success)
+            print ('Read frame ' + str(count) + ': ', success)
             # if image is dark at the sample point turn it white for better OCR
-            if (image[80, int(width - 150), 1] > 127):
+            if (image[80, int(width - 250), 1] > 127):
                 image = (255 - image)
             image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
@@ -102,7 +100,7 @@ def get_text_from_image(filename):
     :returns: cleaned up text of the image that was read
     """
     full_name = r'ss/' + str(filename)
-    print(full_name)
+    print("Getting text from: " + full_name)
     image = cv2.imread(full_name)
     text = get_text(image)
     text = text.replace('\n', ' ').replace('\x0c', '').replace('—', '–')
