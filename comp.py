@@ -222,7 +222,7 @@ for i in titles:
 
 print(result)
 
-res_path = "result.txt"
+res_path = args['ppt'].split('.')[0] + ".txt"
 if os.path.isfile(res_path):
     os.remove(res_path)
 
