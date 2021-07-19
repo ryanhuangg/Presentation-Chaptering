@@ -23,6 +23,8 @@ For example:
 
 python comp.py -video sample.mp4 -ppt presentation.pptx
 
+Batch run: name each set of mp4+pptx with the same file name and run 'python batch.py'
+
 # Known issues:
 Doesn't work well with coloured text titles (black or white works well)
 
