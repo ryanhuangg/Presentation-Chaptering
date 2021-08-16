@@ -20,7 +20,7 @@ args = vars(parser.parse_args())
 startTime = datetime.now()
 
 # SET TESSERACT PATH HERE
-pytesseract.pytesseract.tesseract_cmd = r'F:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'D:\Program Files\Tesseract-OCR\tesseract.exe'
 
 filename = args['ppt']
 titles = []
