@@ -1,6 +1,10 @@
 # https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=7f635a2b-f22c-4dc0-8a5f-0fb6f0bdd2bb&response_type=code&redirect_uri=https%3A%2F%2Flogin.microsoftonline.com%2Fcommon%2Foauth2%2Fnativeclient&response_mode=query&scope=User.Read%20offline_access%20Files.ReadWrite
 import requests
 import json
+import os
+import glob
+import time
+import os
 
 # Build the POST parameters
 f = open("token.txt", "r")
@@ -21,6 +25,8 @@ f = open("token.txt", "w")
 f.write(new_refresh_token)
 f.close()
 
+time.sleep(5)
+
 header = {'Authorization': 'Bearer ' + access_token}
 
 
@@ -40,3 +46,24 @@ for j in download_list:
                         '/Test' + '/' + j + ':/content', headers=header)
     with open(j, 'wb') as file:
         file.write(response.content)
+
+os.system('python batch.py')
+
+myfiles = glob.glob('*.txt')
+print(myfiles)
+
+for i in myfiles:
+    if i == "token.txt" or i == "token_backup.txt" or i == "requirements.txt":
+        myfiles.remove(i)
+
+
+if "token.txt" in myfiles:
+    myfiles.remove("token.txt")
+
+print(myfiles)
+
+for j in myfiles:
+    if j != "token.txt":
+        data = open(j, 'rb').read()
+        response = requests.put('https://graph.microsoft.com/v1.0/me/drive/root:' +
+                        '/Test' + '/' + j + ':/content', data=data, headers=header)
